@@ -195,15 +195,15 @@ def csmf(iva5: interva.interva5.InterVA5,
 
     # show causes with top non-zero values
     show_top = 0
-    while dist_cod[show_top] > 0 and show_top < top:
+    while dist_cod.iloc[show_top] > 0 and show_top < top:
         show_top = show_top + 1
     if show_top == top:
-        a = dist_cod[show_top]
-        b = dist_cod[show_top - 1]
+        a = dist_cod.iloc[show_top]
+        b = dist_cod.iloc[show_top - 1]
         while show_top < len(dist_cod) and (abs(a - b) < (a + b) * 1e-5):
             show_top = show_top + 1
-            a = dist_cod[show_top]
-            b = dist_cod[show_top - 1]
+            a = dist_cod.iloc[show_top]
+            b = dist_cod.iloc[show_top - 1]
     top_csmf = dist_cod.head(show_top)
 
     return top_csmf
@@ -416,7 +416,7 @@ def _csmf_with_interva_rule(va5: DataFrame) -> Series:
         dist_cod = dist_cod / dist_cod.sum()
         dist_cod.index = cause_names
     if (isna(dist_cod).sum() == len(dist_cod)).all():
-        dist_cod[isna(dist_cod)] = 0
+        dist_cod.iloc[isna(dist_cod)] = 0
 
     return dist_cod
 

@@ -552,7 +552,7 @@ class InterVA5:
                 comcat = "Multiple"
                 comnum = " "
             if nanmax(prob_C) >= 0.5:
-                comcat = prob_C_names[where(prob_C == nanmax(prob_C))[0][0]]
+                comcat = prob_C_names.iloc[where(prob_C == nanmax(prob_C))[0][0]]
                 comnum = round(nanmax(prob_C) * 100)
 
             ID_list[i] = index_current

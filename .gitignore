@@ -8,3 +8,7 @@ interva/data/__pycache__
 interva/data/pytest_cache
 tests/pytest_cache
 tests/__pycache__
+.venv
+*.csv
+errorlogV5.txt
+dist
